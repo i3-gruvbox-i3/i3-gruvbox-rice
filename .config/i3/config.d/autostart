@@ -1,0 +1,58 @@
+#######################
+# AUTO START #
+#######################
+
+# set screen layout
+exec bash ~/.config/i3/main-screen.sh
+
+# fix java errors
+exec export "_JAVA_AWT_WM_NONREPARENTING=1"
+
+# num lock activated
+exec --no-startup-id numlockx on
+
+# Keyboard Layouts
+exec --no-startup-id setxkbmap -layout 'us,ara' -option 'grp:win_space_toggle'
+
+# Start gnome-keyring
+exec --no-startup-id dbus-update-activation-environment --all
+exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+
+# Kill if already running
+exec --no-startup-id killall -9 xsettingsd dunst xfce4-power-manager bspc flameshot redshift-gtk greenclip picom
+
+# exec polybar
+exec --no-startup-id bash ~/.config/i3/polybar/launch.sh
+
+# polkit agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Enable picom
+exec --no-startup-id bash ~/.config/i3/bsp-scripts/bspcomp
+
+# Enable dunst
+exec --no-startup-id bash ~/.config/i3/bsp-scripts/bspdunst
+
+# Restore wallpaper
+exec --no-startup-id bash ~/.config/i3/fehbg
+
+# Lauch xsettingsd daemon
+exec --no-startup-id xsettingsd --config=~/i3/xsettingsd
+
+# Enable power management
+exec --no-startup-id xfce4-power-manager
+
+# Enable redshift
+exec --no-startup-id redshift-gtk
+
+# Enable flameshot
+exec --no-startup-id flameshot
+
+# Enable greenclip
+exec --no-startup-id greenclip daemon >/dev/null
+
+# Fix cursor
+exec --no-startup-id xsetroot -cursor_name left_ptr
+
+# autotiling script
+exec_always --no-startup-id autotiling

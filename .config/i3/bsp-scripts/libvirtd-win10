@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Check if libvirtd service is active
+if ! systemctl is-active libvirtd.service &> /dev/null; then
+  # Start the service silently (no output)
+  sudo systemctl start libvirtd.service >/dev/null 2>&1
+fi
+sudo virsh start win10

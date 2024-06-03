@@ -1,0 +1,27 @@
+# official i3 reference: http://i3wm.org/docs/userguide.html
+# EndeavourOS i3 config: https://github.com/endeavouros-team/endeavouros-i3wm-setup
+# EndeavourOS i3 wiki: https://discovery.endeavouros.com/window-tiling-managers/i3-wm/
+# iconic font icon search: https://fontawesome.com/v4.7/cheatsheet/
+
+
+#######################
+# config starts here: #
+#######################
+include $HOME/.config/i3/config.d/*
+
+#######################
+# GENERAL SETTINGS #
+#######################
+
+# Font for window titles. Will also be used by the bar
+font pango: Fira Sans Regular 10
+
+#####################
+# workspace layout: #
+#####################
+
+# disables mouse warping to center when focusing on new workspace
+# mouse_warping none
+
+# default i3 tiling mode:
+workspace_layout default

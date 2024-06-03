@@ -1,0 +1,114 @@
+set $mod Mod4
+set $exec exec --no-startup-id
+
+######################################
+# keybindings for different actions: #
+######################################
+
+# close focused window
+bindsym $mod+w kill
+
+# kill window
+bindsym $mod mod1+Escape $exec xkill
+
+# exit-menu
+bindsym $mod+Shift+Delete $exec xfce4-session-logout
+
+# Lock the system
+bindsym $mod+l $exec betterlockscreen --lock
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to update i3)
+bindsym $mod+Shift+r restart
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+# bindsym $mod+h split h
+
+# split in vertical orientation
+# bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+t floating toggle
+
+# toggle tiling / floating
+bindsym $mod+e layout tabbed
+
+# toggle tiling / floating
+bindsym $mod+s layout default
+
+# toggle sticky for floating only
+bindsym $mod+k sticky toggle
+
+
+######################################
+# Multimedia Keys #
+######################################
+
+# volume
+# use meta keys without showing osc
+bindsym XF86AudioRaiseVolume $exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume $exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute $exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute $exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# audio control
+bindsym XF86AudioPlay $exec playerctl play-pause
+bindsym XF86AudioPause $exec playerctl stop
+bindsym XF86AudioPrev $exec playerctl previous
+bindsym XF86AudioNext $exec playerctl next
+
+## App shortcuts
+bindsym $mod+Return $exec kitty
+bindsym Print $exec flameshot gui
+bindsym $mod+p $exec arandr
+bindsym $mod+F1 $exec xfce4-popup-whiskermenu
+bindsym Shift+Ctrl+Escape $exec kitty -e btm
+
+bindsym $mod+Shift+i $exec geany ~/.config/i3/config
+bindsym $mod+Shift+e $exec /usr/bin/pcmanfm
+bindsym $mod+Shift+f $exec /usr/bin/firefox
+bindsym $mod+Shift+d $exec /usr/bin/discord
+bindsym $mod+Shift+s $exec /usr/bin/spotify
+bindsym $mod+Shift+o $exec /usr/bin/obsidian
+bindsym $mod+Shift+q $exec /usr/bin/qalculate-gtk
+bindsym $mod+Shift+v $exec .config/bspwm/scripts/libvirtd-win10
+
+
+######################################
+# Rofi Launcher & Menus: #
+######################################
+
+# Color Picker
+bindsym $mod+Shift+p $exec $HOME/.config/i3/bsp-scripts/bspcolorpicker
+# Rofi App Launcher
+bindsym $mod+a $exec ~/.config/i3/bsp-scripts/rofi_launcher
+
+# alt tab switcher
+bindsym mod1+Tab $exec ~/.config/i3/bsp-scripts/rofi_windows
+
+# Rofi Run
+bindsym $mod+v $exec rofi -config "~/.config/i3/rofi/windows.rasi" -modi "clipboard:greenclip print" -show clipboard
+
+# Rofi Menus/Applets
+# install chaotic-aur/networkmanager-dmenu-git
+bindsym $mod+n $exec networkmanager_dmenu
+bindsym $mod+r $exec ~/.config/i3/bsp-scripts/rofi_asroot
+bindsym $mod+x $exec ~/.config/i3/bsp-scripts/rofi_powermenu
+
